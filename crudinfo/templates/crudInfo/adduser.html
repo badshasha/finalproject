@@ -1,0 +1,8 @@
+add user
+
+
+<form class="" action="{% url 'adduserpage' %}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" name="" value="createAccount">
+</form>

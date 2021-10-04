@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+     page load
+
+    {{ user }}
+
+<form class="" action="{% url 'userpage' user.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="" value="submit">
+</form>
+
+
+
+  </body>
+</html>

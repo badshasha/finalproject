@@ -1,0 +1,10 @@
+delete page
+
+
+{{ user }}
+
+<form class="" action="{% url 'deletepage' user.id %}" method="post">
+  {% csrf_token %}
+  <input type="submit" name="yes" value="yes">
+  <input type="submit" name="no" value="no">
+</form>

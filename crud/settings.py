@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crudinfo.apps.CrudinfoConfig',
+    'subjects.apps.SubjectsConfig',
+    'mainpage.apps.MainpageConfig',
+    'adminController.apps.AdmincontrollerConfig'
 ]
 
 MIDDLEWARE = [
