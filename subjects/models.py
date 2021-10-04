@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.admin import User
 
 # Create your models here.
 
@@ -16,6 +17,16 @@ class SubTopic(models.Model):
 
     def __str__(self):
         return f'{self.subject.name} => {self.name}'
+
+class Exam(models.Model):
+    success = models.FloatField()
+    fail = models.FloatField()
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    subject = models.ForeignKey(SubTopic,on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.user.username} {self.subject} => {self.success}'
 
 
 class Question(models.Model):

@@ -10,7 +10,7 @@ from django.contrib.auth.admin import User
 from .custom_class.subject_selector import SubjectSelection # subject class import
 from .custom_class.Validator import  Validation
 from .models import  StudentsSubject
-from subjects.models import  Subjects ,SubTopic # this error not error it's pychart issue [not a real one]
+from subjects.models import  Subjects ,SubTopic , Exam # this error not error it's pychart issue [not a real one]
 from django.http import JsonResponse  # handling json infomation
 from django.core import serializers
 import random
@@ -171,17 +171,22 @@ def testingPost(request):
         subject_selector_instance = SubjectSelection()
         v = Validation()
         token_pass = 0
-
+        question = None
         # read input and calculate percentage
         for key, value in request.POST.items():
             if token_pass == 0:
                 token_pass += 1
                 continue
-            v.checkAnswer(subject_selector_instance.getQuesion(key),value)
+            question = subject_selector_instance.getQuesion(key)
+            v.checkAnswer(question, value)
             token_pass += 1
         # print(v.getResult())
         # print(v.Percentage_of_success())
         # print(v.Percentage_of_failier())
+        print(question.subject_name)
+        print(request.user)
+        exam = Exam.objects.create(user=request.user,subject=question.subject_name,success= v.Percentage_of_success(),fail=v.Percentage_of_failier())
+        exam.save()
 
         # update database based on user information
 
