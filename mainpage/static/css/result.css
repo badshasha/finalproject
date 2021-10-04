@@ -1,0 +1,75 @@
+.first > .col{
+    background-color: rgba(119, 119, 119, 0.13);
+    margin:1rem .3rem;
+    padding:.5rem 1rem;
+    margin-bottom: 0;
+}
+
+.secound > .col {
+
+    margin:0rem .3rem;
+    padding:1rem 2rem;
+}
+
+.one{
+    background-color: #249D68;
+    color: rgb(222, 215, 215);
+}
+
+.two{
+    background-color: #2C8954;
+    color: rgb(222, 215, 215);
+}
+
+.three{
+    background-color: rgba(119, 119, 119, 0.13);
+    color :  #249D68;
+}
+.value > .col{
+    text-align: center;
+    display: flex;
+}
+.success{
+    background-color:#249D68 ;
+    width: 30%;
+    margin: 0 auto;
+    height:50px ;
+    vertical-align: center;
+    font-size:2rem;
+    color:white;
+
+}
+.fail{
+    background-color:#25A970;
+    width: 30%;
+    margin: 0 auto;
+    height:50px ;
+    vertical-align: center;
+    font-size:2rem;
+    color:white;
+}
+
+.q{
+    font-size:1rem;
+}
+
+.click_container{
+    text-align: center;
+}
+.click:link,
+.click:visited{
+    display: inline-block;
+    margin:1rem 2rem;
+    text-decoration: none;
+    background-color: #2C8954;
+    color:white;
+    padding:1rem 2rem;
+    border-radius: 10px;
+   box-shadow: -1px 8px 15px #0000006b;
+    transition: all .2s;
+}
+.click:hover{
+    color: rgb(222, 215, 215);
+    transform: translateY(-2px);
+     box-shadow: -1px 8px 18px #0000006b;
+}

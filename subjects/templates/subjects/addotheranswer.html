@@ -1,0 +1,39 @@
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/warning.css'%}">
+  <title>Document</title>
+</head>
+<body>
+
+
+<div class="form">
+
+  <form class="" action="{% url 'otheransweradd' question_id.id  %}" method="post">
+
+     {% csrf_token %}
+
+
+    <input type="text" name="other_ansewr" placeholder="enter other answer ">
+
+
+    <!-- <input type="submit"  value="create"> -->
+    <button type="submit" name="button">create</button>
+
+
+  </form>
+
+
+
+</div>
+
+
+{#{{  form }}#}

@@ -1,0 +1,42 @@
+working
+{{ question }}
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/warning.css'%}">
+  <title>Document</title>
+</head>
+<body>
+
+<div class="form">
+<form action="{% url 'deletequeston' question.id %}" method="post">
+{% csrf_token %}
+
+<!-- <div class="box"> -->
+  <h1> {{  question.question }} delete ?   </h1>
+
+  <!-- <div class="box__link"> -->
+    <!-- <input type="submit" name="no" value="no" > -->
+    <!-- <input type="submit" name="yes" value="yes" class="delete_b"> -->
+
+    <button type="submit" name="no" value="no" style='color:black;background:#8080802e'>no</button>
+    <br>
+    <button type="submit" name="yes" value="yes" style='margin-top:10px;background-color:#e00000fa;'>yes</button>
+
+    <!-- </div> -->
+
+  <!-- </div> -->
+
+
+</form>
+
+</div
+</body>
+</html>

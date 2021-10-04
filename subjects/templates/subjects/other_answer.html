@@ -1,0 +1,56 @@
+
+{#{{  other_answers }}#}
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <table class="table">
+        <thead>
+        <tr class="table_head">
+            <th>subject name</th>
+{#            <th>description</th>#}
+{#            <th>sub topics</th>#}
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+        {% if other_answers|length > 0  %}
+
+
+        {% for answer in other_answers %}
+        <tr>
+            <td>{{ answer.other_ansewr }}</td>
+{#            <td>{{answer.description }}</td>#}
+{#            <td><a href="#" class="update" style="background-color:#0000009c;">subtopic</a></td>#}
+            <td><a href="{% url 'otheranswerupdate' answer.id %}" class="update">update</a></td>
+            <td><a href="{% url 'otheranswerdelete' answer.id %}" class="delete">delete</a></td>
+        </tr>
+        {% endfor %}
+
+
+
+
+        {% else %}
+        <p> havent got any info </p>
+
+        {% endif %}
+
+
+
+    </table>
+
+ <a class="btn_create" href="{%  url 'otheransweradd' question_id %}">add other question</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="simple">
+
+
+    <form action="{% url 'login' %}" class="box" method="post">
+         {% csrf_token %}
+        <h1 class="box_heading">Login</h1>
+        <input type="text" name="name"  class="box__input box_input--name" placeholder="username">
+        <input type="password" name="password" class="box__input box_input--password" placeholder="password">
+        <input type="submit" value="Login" class="box__submit">
+        <p class="box_para">create a new account :</p><a href="{% url 'sign' %}">sign in</a>
+    </form>
+
+
+</div>
+
+
+</body>
+</html>

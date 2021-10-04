@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <table class="table">
+        <thead>
+        <tr class="table_head">
+            <th>subject name</th>
+            <th>description</th>
+            <th>sub topics</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+
+        {% for sub in subjects_info %}
+        <tr>
+            <td>{{ sub.name }}</td>
+            <td>{{sub.description }}</td>
+            <td><a href="{% url 'subtopic' sub.id%}" class="update" style="background-color:#0000009c;">subtopic</a></td>
+            <td><a href="{% url 'subjectupdate' sub.id %}" class="update">update</a></td>
+            <td><a href="{% url 'deletesubject' sub.id %}" class="delete">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a class="btn_create" href="{% url 'addsubjectpage' %}">add subject</a>
+
+</body>
+</html>

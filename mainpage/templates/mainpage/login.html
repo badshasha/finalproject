@@ -1,0 +1,35 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <title>Document</title>
+</head>
+<body>
+    {% if error  %}
+        <h2>{{ error }}</h2>
+    {% else %}
+        <h2>no error</h2>
+    {% endif %}
+
+    <div class="simple">
+    <form action="#" id="bb" class="box box__bigger" method="post">
+        {% csrf_token %}
+        <h1 class="box_heading">Login</h1>
+        <input type="text" name="f_name" id="" class="box__input box_input--name" placeholder="first name">
+        <input type="email" name="email" id="" class="box__input box_input--name" placeholder="email">
+        <input type="password" name="password1" id="" class="box__input box_input--password" placeholder="password">
+        <input type="password" name="password2" id="" class="box__input box_input--password" placeholder="conform password">
+        <input type="submit" value="create" class="box__submit">
+        <p class="box_para">already have an account :</p><a href="{% url 'login'%}">log in</a>
+    </form>
+    </div>
+</body>
+</html>
+
+<!-- box class have an issues search where the other box file  -->

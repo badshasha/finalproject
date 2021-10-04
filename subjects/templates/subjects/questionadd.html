@@ -1,0 +1,50 @@
+{{ subject_info }}
+
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/warning.css'%}">
+  <title>Document</title>
+</head>
+<body>
+
+
+<div class="form">
+
+  <form class="" action="{% url 'addquestion' subject_info.id %}" method="post">
+
+     {% csrf_token %}
+    <!--{{ subject_form.as_p }} -->
+
+    <!-- <label for="name">name</label> -->
+    <input type="text" name="question" placeholder="question">
+
+    <!-- <label for="description">description</label> -->
+    <input type="text" name="correct_answer" placeholder="correct answer" >
+
+    <input type="hidden" name="subject_name"  value="{{ subject_info.id }}">
+
+    <!-- <input type="submit"  value="create"> -->
+    <button type="submit" name="button">create</button>
+
+    {{ subject_info.subject.id }}
+    {{ subject_info.id }}
+
+
+  </form>
+
+
+
+</div>
+
+
+</body>
+</html>

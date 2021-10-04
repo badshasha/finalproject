@@ -1,0 +1,107 @@
+.box{
+    font-family: Lato;
+    letter-spacing:1.5px;
+    font-weight: 500;
+    width:30%;
+    background-color:rgba(159, 159, 159, 0.35);
+    height: 35vh;
+    text-align:center;
+    margin:auto;
+    margin-top : 15%;
+    padding : 1rem 2rem;
+    border-radius:5px;
+    box-shadow: 0 5px 10px rgba(11, 8, 8, 0.263);
+    position: relative;
+}
+
+.box > h1{
+    padding-top: 50px;
+}
+
+.box__link{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.box__link > input{
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size:17px;
+    box-shadow: 0 5px 10px rgba(11, 8, 8, 0.263);
+}
+
+.update_b{
+    color:white;
+    background-color: rgb(85, 193, 85);
+}
+
+.delete_b{
+    color:#fff;
+    background-color: rgb(203, 30, 30);
+}
+
+
+/*
+.x{
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+} */
+
+.update_b:hover , .delete_b:hover{
+    text-decoration:underline;
+    box-shadow: 0 8px 10px rgb(183, 178, 178);
+}
+
+
+.say_hello{
+  color:pink;
+  background-color:white;
+}
+
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}

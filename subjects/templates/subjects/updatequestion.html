@@ -1,0 +1,41 @@
+working
+{{ question_info }}
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/warning.css'%}">
+  <title>Document</title>
+</head>
+<body>
+
+
+<div class="form">
+
+<form class="" action="{% url 'updatequeston' question_info.id %}" method="post">
+    {% csrf_token %}
+    <!-- {{ subject_info.as_p }} -->
+    <input type="text" name="question" value="{{ question_info.question }}">
+
+
+    <!-- <label for="description">description</label> -->
+    <input type="text" name="correct_answer" value='{{ question_info.correct_answer }}' >
+
+  
+
+<button type="submit" name="button">update</button>
+
+</form>
+
+
+</div>
+
+
+</body>
+</html>

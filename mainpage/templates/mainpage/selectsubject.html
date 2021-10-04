@@ -1,0 +1,64 @@
+{% load static %}
+
+<!-- dashboard page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select subject</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/subjectpage.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+</head>
+<body>
+
+<!--<h2 class="heading">{{  user.username }}' your selected subject</h2>-->
+
+
+
+    <nav>
+        <ul class="nav-list">
+            <li class='nav-item'><a href="{% url 'userdashbord' %}">dashboard</a> </li>
+            <li class='nav-item'><a href="{% url 'exampage' %}">exam</a> </li>
+            <li class='nav-item'><a href="#">user profile</a> </li>
+            <li class='nav-item'>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="logout">
+                 </form>
+            </li>
+        </ul>
+    </nav>
+
+
+     <div class="btn_container">
+
+            <a class="btn_add" href="{% url 'adduser_subject' %}">add subject</a>
+     </div>
+    <div class="container">
+
+        <h1>table info</h1>
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for s in subject %}
+            <tr>
+                 <td> {{ s }} <td>
+                 <td><a class="btn1" href="{% url 'removeuser_subject' s.id %}"> delete </a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+
+
+
+</body>
+</html>
