@@ -18,11 +18,11 @@
     text-shadow: 0.1rem 3rem 3rem rgba(0, 0, 0, 0.2); }
 
 .heading-tertiary {
-  color: #ae844c;
+  color: #2C8954;
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.6rem;
-  border-bottom: solid #bd6111 1px;
+  border-bottom: solid #249D68 1px;
   display: inline-block;
   margin-bottom: 2rem;
   position: relative; }
@@ -137,7 +137,7 @@ body {
   display: inline-block; }
   .btn:link, .btn:visited {
     color: #fff;
-    background-color: #ff8c00db;
+    background-color:#2C8954;
     padding: 2rem 4rem;
     font-size: 1.5rem;
     border-radius: 10rem;
@@ -160,7 +160,7 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    background-color: rgba(255, 140, 0, 0.289);
+    background-color: #2C8954;
     border-radius: 10rem;
     position: absolute;
     top: 0;
@@ -251,7 +251,8 @@ body {
   margin: 0 6px 0 0; }
 
 .simple {
-  background: linear-gradient(to top, #3a2d16d4, white);
+  /*background: linear-gradient(to top,#D9D9D9, #BFBFBF );*/
+  background: linear-gradient(to top,white, white );
   height: 100vh; }
 
 .box {
@@ -272,7 +273,7 @@ body {
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #c3830e;
+    border: 2px solid #2C8954;
     padding: 14px 10px;
     width: 200px;
     color: white;
@@ -283,7 +284,7 @@ body {
       width: 280px;
       border-color: white; }
     .box__input::placeholder {
-      color: #d69f13;
+      color: #2C8954;
       letter-spacing: .2rem;
       font-size: 1.2rem; }
     .box__input:hover {
@@ -297,11 +298,11 @@ body {
     letter-spacing: .3rem; }
   .box__submit {
     border: 0;
-    background: #d69f13;
+    background: #2C8954;
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #d69f13;
+    border: 2px solid #2C8954;
     padding: 14px 40px;
     width: 100px;
     color: white;
@@ -318,7 +319,7 @@ body {
     font-size: 1.3rem;
     letter-spacing: .2rem; }
   .box a {
-    color: #d69f13;
+    color: #2C8954;
     font-size: 1.3rem;
     padding: 1rem 2rem; }
 
@@ -353,7 +354,7 @@ body {
 
 .header {
   height: 120vh;
-  background-image: linear-gradient(to right bottom, rgba(255, 166, 0, 0.131), rgba(255, 140, 0, 0.289) 58%), url("../image/hero.jpg");
+  background-image:linear-gradient(to right bottom, rgb(5 62 29), rgb(28 58 25/35%) ), url(../image/hero.jpg);
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -366,7 +367,7 @@ body {
     height: 3.5rem; }
   .header__primary {
     color: rgba(255, 255, 255, 0.878);
-    background: rgba(50, 35, 10, 0.64);
+    background: #19541294;
     text-transform: uppercase;
     position: absolute;
     top: 13.5%;
@@ -375,6 +376,8 @@ body {
     text-align: center;
     /* for button */ }
     .header__primary--main {
+      /*color:#081b11b8;*/
+      color: rgba(245, 239, 239, 0.75);
       display: block;
       font-size: 7rem;
       font-weight: 900;
@@ -383,8 +386,10 @@ body {
       animation-duration: 2s;
       animation-timing-function: cubic-bezier(0.18, 0.51, 0.58, 1); }
     .header__primary--main::first-letter {
+      color:#f5efeff2;
       font-size: 27rem; }
     .header__primary--sub {
+      color:#f5efeff2;;
       position: absolute;
       display: block;
       font-size: 1.5rem;
@@ -398,7 +403,7 @@ body {
 
 .nav-list {
   margin: 0;
-  background-color: #68470641;
+  background-color:#06250f41;;
   display: flex;
   justify-content: flex-end;
   padding: 2.5rem 1rem;
@@ -416,7 +421,7 @@ body {
       text-decoration: none;
       font-size: 3rem;
       text-transform: capitalize;
-      font-weight: 300;
+      font-weight: 400;
       color: rgba(255, 255, 255, 0.878);
       padding: 2rem 1rem;
       transition: all .1s;
@@ -432,7 +437,7 @@ body {
       content: "";
       display: block;
       background: url("../image/icon/feather/home.svg") no-repeat;
-      color: pink;
+      color: #897d7f;
       width: 30px;
       height: 30px;
       float: left;
@@ -498,5 +503,5 @@ body {
   height: 110vh;
   clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 100%);
   margin-top: -128vh;
-  background-color: #8f561d;
+  background-color: #2C8954;
   position: relative; }
