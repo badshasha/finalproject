@@ -47,7 +47,7 @@ def singin(request):
                 error = "entered name exists on the system "
         else:
             error = 'wrong infomation please check your information again '
-    return render(request, "mainpage/login.html",{'error':error})
+    return render(request, "mainpage/login.html", {'error': error})
 
 
 def logout(request):
@@ -152,7 +152,7 @@ def examsubtopic(request,id):
     serialized_qs = serializers.serialize('json', queryset)
     data = {
         #
-        'subtopic' : serialized_qs
+        'subtopic': serialized_qs
     }
 
     return JsonResponse(data)
@@ -165,8 +165,8 @@ def examsubtopicpage(request,id):
     simple = subject_selector_instance.getSample(id,5) # class creating
     return render(request,'mainpage/questionpaper.html',{'paper':simple})
 
-def testingPost(request):
 
+def testingPost(request):
     if request.POST:
         subject_selector_instance = SubjectSelection()
         v = Validation()
@@ -193,3 +193,35 @@ def testingPost(request):
         # return response
         return render(request,'mainpage/resultPage.html', {'paper': v.getResult(),'success': v.Percentage_of_success(), 'fail' : v.Percentage_of_failier()})
     return HttpResponse(request.POST);
+
+# get request user selected page
+def getExamResult(request):
+    list_of_subjects = request.user.studentssubject.subjects.all()
+    # print(list_of_subjects)
+    return render(request,'mainpage/examchart.html', {'subjects': list_of_subjects})
+
+# get subject chart info
+def getSubjectChart(request,id):
+    subject = Subjects.objects.filter(id=id).first()
+    queryset = subject.subtopic_set.all()
+    serialized_qs = serializers.serialize('json', queryset)
+    data = {
+        #
+        'subtopic': serialized_qs
+    }
+
+    return JsonResponse(data)
+
+def examsubjectjson(request):
+    pass
+
+
+def getChart(request,id):
+    subtopic = SubTopic.objects.filter(id=id).first()
+    mark_info =request.user.exam_set.filter(subject=subtopic).order_by('date')
+    data = serializers.serialize('json', mark_info)
+    data_list = {
+        'marks': data
+    }
+
+    return JsonResponse(data_list)

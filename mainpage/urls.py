@@ -16,7 +16,8 @@ urlpatterns = [
     path('exampage/sub/<int:id>',views.examsubtopic,name="examsubtopic"),#json
     path('exampage/sub/subexam/<int:id>',views.examsubtopicpage , name ="examsubtopicpage"), # real page
     path('exampage/check',views.testingPost,name="check"),
-
-
-
+    path('exampage/exam_json',views.getExamResult,name='exam_json'),
+    # path('exampage/exam_chart/<int:id>', views.getSubjectChart, name='exam_chart'),   # delete this code
+    path('exampage/json/<int:id>',views.getSubjectChart , name='exam_sub_json'), # get json informatoin
+    path('exampage/json_chart/<int:id>', views.getChart, name='exam_chart'),
 ]

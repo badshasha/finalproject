@@ -82,26 +82,28 @@
     <div class="container" style="text-align: center;">
         <div class="row">
 
-            <div class="col col-2" style="background-color:#172601;border-radius: 10px;">
+            <div class="col col-2" style="background-color:#D9D9D9;">
 
                 <ul class="dash_list">
-                    <li class="dash_item"><a id="subject" href="#" class="dash_link">subject info</a></li>
-                     <li class="dash_item"><a id="subject2" href="#" class="dash_link">selected subject</a></li>
-                    <li><a href="#">b3</a></li>
-                    <li><a href="#">b4</a></li>
+                    <li class="dash_item"><a style="width: 100%;" id="subject" href="#" class="dash_link">subject info</a></li>
+                    <li class="dash_item"><a style="width: 100%;" id="subject2" href="#" class="dash_link">selected subject</a></li>
+<!--                    <li><a href="#">b3</a></li>-->
+<!--                    <li><a href="#">b4</a></li>-->
                 </ul>
 
             </div>
-            <div class="col" >
+            <div class="col" style="background-color:rgba(242,242,242,0.45)" >
                  <canvas id="myChart" width="400" height="400"></canvas>
             </div>
-            <div class="col">
+            <div class="col" style="background-color:#F2F2F2">
                  <canvas id="myChart2" width="400" height="400"></canvas>
             </div>
         </div>
     </div>
 
-
+<div class="container" style="text-align: center;font-size:1rem;margin-top:2rem;">
+    <a class="dash_link" href="{% url 'exam_json' %}">exam analise</a>
+</div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
