@@ -20,4 +20,5 @@ urlpatterns = [
     # path('exampage/exam_chart/<int:id>', views.getSubjectChart, name='exam_chart'),   # delete this code
     path('exampage/json/<int:id>',views.getSubjectChart , name='exam_sub_json'), # get json informatoin
     path('exampage/json_chart/<int:id>', views.getChart, name='exam_chart'),
+    path('exampage/fullpage/<int:id>',views.fullpaper,name='fullpapaer'),
 ]

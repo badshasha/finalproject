@@ -16,11 +16,14 @@ for(var i = 0; i < btn.length; i++){
                 var add = document.getElementById("add_hear");
                 add.innerHTML = '';
                 var htmlRender = "";
+                let full_paper_link_id ;
                 for (var i = 0; i<value.length;i++){
 
-                    htmlRender += "<a class='link' href='sub/subexam/" + value[i].pk +"'/>"+value[i].fields["name"]+"</a>";
+                    htmlRender += "<a class='link'  href='sub/subexam/" + value[i].pk +"'/>"+value[i].fields["name"]+"</a>";
+                    full_paper_link_id = value[i].fields["subject"];
 
                 }
+                htmlRender += "<br><a class='link' href='fullpage/1' style='background-color: #2DA64B;margin-top:1rem; '>fullpaper</a>"
                 add.insertAdjacentHTML('beforeend',htmlRender);
 
 

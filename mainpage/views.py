@@ -13,6 +13,7 @@ from .models import  StudentsSubject
 from subjects.models import  Subjects ,SubTopic , Exam # this error not error it's pychart issue [not a real one]
 from django.http import JsonResponse  # handling json infomation
 from django.core import serializers
+from math import floor
 import random
 
 
@@ -162,8 +163,8 @@ def examsubtopic(request,id):
 
 def examsubtopicpage(request,id):
     subject_selector_instance = SubjectSelection()
-    simple = subject_selector_instance.getSample(id,5) # class creating
-    return render(request,'mainpage/questionpaper.html',{'paper':simple})
+    simple = subject_selector_instance.getSample(id, 5)  # class creating
+    return render(request, 'mainpage/questionpaper.html', {'paper': simple, 'full': False})
 
 
 def testingPost(request):
@@ -177,22 +178,29 @@ def testingPost(request):
             if token_pass == 0:
                 token_pass += 1
                 continue
+            if 'full_paper' == key:
+                continue
+            print(f'{key} {value}')
             question = subject_selector_instance.getQuesion(key)
+            print(question)
             v.checkAnswer(question, value)
             token_pass += 1
+
         # print(v.getResult())
         # print(v.Percentage_of_success())
         # print(v.Percentage_of_failier())
-        print(question.subject_name)
-        print(request.user)
-        exam = Exam.objects.create(user=request.user,subject=question.subject_name,success= v.Percentage_of_success(),fail=v.Percentage_of_failier())
-        exam.save()
+        # print(question.subject_name)
+        # print(request.user)
+        if not request.POST["full_paper"]:
+            exam = Exam.objects.create(user=request.user,subject=question.subject_name,success= v.Percentage_of_success(),fail=v.Percentage_of_failier())
+            exam.save()
 
         # update database based on user information
 
         # return response
         return render(request,'mainpage/resultPage.html', {'paper': v.getResult(),'success': v.Percentage_of_success(), 'fail' : v.Percentage_of_failier()})
     return HttpResponse(request.POST);
+
 
 # get request user selected page
 def getExamResult(request):
@@ -225,3 +233,28 @@ def getChart(request,id):
     }
 
     return JsonResponse(data_list)
+
+
+def fullpaper(request,id):
+    question_papaer_size = 10
+    selected_subject=Subjects.objects.filter(id=id).first()
+    subtopic_list = selected_subject.subtopic_set.all()
+    # print(subtopic_list)
+    last_record_info = [request.user.exam_set.filter(subject=value).order_by('date').first() for value in subtopic_list]
+    get_presentages = [value.fail if value.fail > 0 else value.fail+1 for value in last_record_info ]
+    get_ratio = [ vaule/min(get_presentages) for vaule in get_presentages]
+
+    final_paper = [ floor(value/sum(get_ratio) * question_papaer_size) for value in get_ratio]
+    diff = question_papaer_size - sum(final_paper)
+    min_value_position = final_paper.index(min(final_paper))
+    final_paper[min_value_position] = min(final_paper) + diff
+
+    # question selection
+    simple = None
+    question_class = SubjectSelection()
+    for subtopic , count in zip(subtopic_list,final_paper):
+        simple = question_class.getSample(subtopic.id,count)
+        # print(f'{subtopic.id}  {count}')
+
+    return render(request, 'mainpage/questionpaper.html', {'paper': simple , 'full':True})
+    # return HttpResponse(f"{question_list[-1]}")
