@@ -258,3 +258,6 @@ def fullpaper(request,id):
 
     return render(request, 'mainpage/questionpaper.html', {'paper': simple , 'full':True})
     # return HttpResponse(f"{question_list[-1]}")
+
+def updateUser(request):
+    return render(request,'mainpage/userupdate.html')

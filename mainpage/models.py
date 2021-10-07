@@ -14,3 +14,4 @@ class StudentsSubject(models.Model):
 
     def __str__(self):
         return f'{ self.student_id.username } selected { len(self.subjects.all())} subjects'
+

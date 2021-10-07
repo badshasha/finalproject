@@ -38,7 +38,7 @@
             <li class='nav-item'><a href="#">homepage</a> </li>
             <li class='nav-item'><a href="{% url 'selecet_subject' %}">my subject</a> </li>
             <li class='nav-item'><a href="{% url 'exampage' %}">exam</a> </li>
-            <li class='nav-item'><a href="#">user profile</a> </li>
+            <li class='nav-item'><a href="{% url 'userprofile' %}">user profile</a> </li>
             <li class='nav-item'>
                  <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
@@ -48,8 +48,38 @@
         </ul>
     </nav>
 
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col">user name</div>
+            <div class="col">{{ user.username }}</div>
+        </div>
+          <div class="row">
+            <div class="col">firstname</div>
+            <div class="col">
+                {% if not user.firstname %}
+                    {{ None }}
+                {% else %}
+                    {{ user.firstname }}
+                {% endif %}
+            </div>
+        </div>
+          <div class="row">
+            <div class="col">
+               lastname
+            </div>
+            <div class="col">
+                {% if not user.lastname %}
+                    {{ None }}
+                {% else %}
+                    {{ user.lastname }}
+                {% endif %}
+            </div>
+        </div>
+          <div class="row">
+            <div class="col">last name</div>
+            <div class="col">{{ user.email }}</div>
+        </div>
+    </div>
 
   <h1 class="hero">user dashboard</h1>
 

@@ -21,4 +21,5 @@ urlpatterns = [
     path('exampage/json/<int:id>',views.getSubjectChart , name='exam_sub_json'), # get json informatoin
     path('exampage/json_chart/<int:id>', views.getChart, name='exam_chart'),
     path('exampage/fullpage/<int:id>',views.fullpaper,name='fullpapaer'),
+    path('dashboard/profile',views.updateUser,name='userprofile'),
 ]
