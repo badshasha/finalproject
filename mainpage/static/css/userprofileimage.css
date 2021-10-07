@@ -1,0 +1,30 @@
+
+.user_profile_image{
+    width: 50%;
+    height: 120px;
+    /*border-radius: 50%;*/
+    border-radius: 10px;
+
+}
+
+.image_container{
+    background-color: #b1b1b11c;
+    margin-top:2rem;
+    margin-bottom: 4rem;
+    padding: 2rem 1rem;
+}
+
+.title{
+
+    font-size:.8rem;
+    text-transform: capitalize;
+
+    padding: .2rem 1rem;
+     color: #2C8954;
+    font-weight: 700;
+}
+
+.title_value{
+   font-size : .8rem;
+
+}

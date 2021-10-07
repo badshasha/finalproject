@@ -122,3 +122,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT =  BASE_DIR / 'media' # NOT STORE IN THE DATABASE IT'S STORE IN TH EFILE BASED SYSTEM Base_id is out profile path
+MEDIA_URL = '/media/'  # similter to name

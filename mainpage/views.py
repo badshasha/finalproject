@@ -9,7 +9,7 @@ from django.contrib.auth.admin import User
 
 from .custom_class.subject_selector import SubjectSelection # subject class import
 from .custom_class.Validator import  Validation
-from .models import  StudentsSubject
+from .models import  StudentsSubject , PicProfile
 from subjects.models import  Subjects ,SubTopic , Exam # this error not error it's pychart issue [not a real one]
 from django.http import JsonResponse  # handling json infomation
 from django.core import serializers
@@ -39,8 +39,10 @@ def singin(request):
             try:
                 new_user = User.objects.create_user(username=request.POST['f_name'], email=request.POST['email'], password=request.POST['password1'])
                 new_user.save() # save user
-                subject_table = StudentsSubject.objects.create(student_id=new_user)
+                subject_table = StudentsSubject.objects.create(student_id=new_user) # student subject profile creating 
                 subject_table.save() # add user subject table
+                pic_profile =  PicProfile.objects.create(user_profile=new_user)  # pic profile
+                pic_profile.save()
 
                 print("working")
                 return redirect('login')
@@ -58,9 +60,10 @@ def logout(request):
 
 
 def userDashBroard(request):
-    # if request.user:
-
-    return render(request, 'mainpage/userdash.html')
+    # if request.user:  need to update this part
+    logged_time=request.user.last_login
+    print(logged_time)
+    return render(request, 'mainpage/userdash.html',{'logtime':logged_time})
 
 
 def userDashBrod_selectedsub(request):  # selecet_subject

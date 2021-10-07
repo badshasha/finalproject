@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/dashbord.css' %}">
+    <link rel="stylesheet" href="{% static 'css/userprofileimage.css' %}">
 </head>
 <body>
     {% if user.is_authenticated %}
@@ -49,36 +50,74 @@
     </nav>
 
     <div class="container">
-        <div class="row">
-            <div class="col">user name</div>
-            <div class="col">{{ user.username }}</div>
-        </div>
-          <div class="row">
-            <div class="col">firstname</div>
-            <div class="col">
-                {% if not user.firstname %}
-                    {{ None }}
-                {% else %}
-                    {{ user.firstname }}
-                {% endif %}
+       <div class="row image_container">
+            <div class="col" style="text-align: center;">
+               
+                <img class="user_profile_image" src="{{ user.picprofile.image.url  }}" alt="userprofile image ">
             </div>
+
+           <div class="col">
+                 <div class="row">
+                    <div class="col title">user name</div>
+                    <div class="col title_value">{{ user.username }}</div>
+                 </div>
+                 <div class="row">
+                    <div class="col title">first name</div>
+                    <div class="col title_value">
+                        {% if not user.firstname %}
+                            {{ None }}
+                        {% else %}
+                            {{ user.firstname }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col title">
+                        last name
+                    </div>
+                    <div class="col title_value">
+                    {% if not user.lastname %}
+                        {{ None }}
+                    {% else %}
+                        {{ user.lastname }}
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col title">email</div>
+                    <div class="col title_value">{{ user.email }}</div>
+                </div>
+
+
+           </div>
+
+           <div class="col col-6">
+                <div class="row">
+                    <div class="col title">active</div>
+                    <div class="col title_value">{{ user.date_joined }}</div>
+                 </div>
+                 <div class="row">
+                    <div class="col title">log time</div>
+                    <div class="col title_value">{{ logtime }}</div>
+                 </div>
+
+                 <div class="row">
+                    <div style="margin-top:1.4rem;" class="col title">update profile</div>
+                    <div class="col title_value">
+                         <a class="dash_link" href="">btn click</a>
+                    </div>
+                 </div>
+
+
+           </div>
+
+
+
         </div>
-          <div class="row">
-            <div class="col">
-               lastname
-            </div>
-            <div class="col">
-                {% if not user.lastname %}
-                    {{ None }}
-                {% else %}
-                    {{ user.lastname }}
-                {% endif %}
-            </div>
-        </div>
-          <div class="row">
-            <div class="col">last name</div>
-            <div class="col">{{ user.email }}</div>
-        </div>
+
+
+
+
     </div>
 
   <h1 class="hero">user dashboard</h1>
