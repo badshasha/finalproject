@@ -64,10 +64,10 @@
                  <div class="row">
                     <div class="col title">first name</div>
                     <div class="col title_value">
-                        {% if not user.firstname %}
+                        {% if not user.first_name %}
                             {{ None }}
                         {% else %}
-                            {{ user.firstname }}
+                            {{ user.first_name }}
                         {% endif %}
                     </div>
                 </div>
@@ -76,10 +76,10 @@
                         last name
                     </div>
                     <div class="col title_value">
-                    {% if not user.lastname %}
+                    {% if not user.last_name %}
                         {{ None }}
                     {% else %}
-                        {{ user.lastname }}
+                        {{ user.last_name }}
                     {% endif %}
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                  <div class="row">
                     <div style="margin-top:1.4rem;" class="col title">update profile</div>
                     <div class="col title_value">
-                         <a class="dash_link" href="">btn click</a>
+                         <a class="dash_link" href="{% url 'userprofile' %}">profile update</a>
                     </div>
                  </div>
 

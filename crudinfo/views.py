@@ -1,7 +1,7 @@
 from django.shortcuts import render , get_object_or_404 , redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,UserCreationForm
-
+# from .forms import FromUserCreate
 
 
 class UserInfoInder:
@@ -31,6 +31,7 @@ def userPage(request,user_id):
     # else:
 
     form = UserChangeForm(instance=user_variable)
+    # form = FromUserCreate()
     return render(request,"crudInfo/userpage.html",{"user":user_variable,"form":form})
 
 

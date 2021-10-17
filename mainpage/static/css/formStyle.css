@@ -1,0 +1,25 @@
+
+label{
+    font-size:.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: inline-block;
+    /*margin-top:1rem;*/
+    /*letter-spacing: .06rem;*/
+    color:#2C8954;
+    margin-right: 2rem;
+}
+
+input{
+    display: inline-block;
+    margin-top:.4rem;
+    font-size:.8rem;
+    border:1px solid black
+}
+
+
+.form_container{
+    margin-top:2rem;
+
+
+}

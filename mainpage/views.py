@@ -39,7 +39,7 @@ def singin(request):
             try:
                 new_user = User.objects.create_user(username=request.POST['f_name'], email=request.POST['email'], password=request.POST['password1'])
                 new_user.save() # save user
-                subject_table = StudentsSubject.objects.create(student_id=new_user) # student subject profile creating 
+                subject_table = StudentsSubject.objects.create(student_id=new_user) # student subject profile creating
                 subject_table.save() # add user subject table
                 pic_profile =  PicProfile.objects.create(user_profile=new_user)  # pic profile
                 pic_profile.save()
@@ -262,5 +262,27 @@ def fullpaper(request,id):
     return render(request, 'mainpage/questionpaper.html', {'paper': simple , 'full':True})
     # return HttpResponse(f"{question_list[-1]}")
 
+
+
 def updateUser(request):
+    if request.method == "POST":
+        # if  request.POST["username"]:
+        #     username = request.POST["username"].strip()
+        #     request.user.username = username
+        #     request.user.save()
+        if  request.POST["f_name"]:
+            f_name = request.POST["f_name"].strip()
+            request.user.first_name = f_name
+            request.user.save()
+
+        if  request.POST["l_name"]:
+            l_name = request.POST["l_name"].strip()
+            request.user.last_name = l_name
+            request.user.save()
+        return redirect('userdashbord')
+
+        # print(username,f_name,l_name,sep='\n')
+
+
+
     return render(request,'mainpage/userupdate.html')

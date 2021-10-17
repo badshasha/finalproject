@@ -22,10 +22,11 @@ body{
 
 th {
  color:#fff;
- background:#86661b;
- border-bottom:4px solid #9ea7af;
- border-right: 1px solid #343a45;
- font-size:2rem;
+ background: #09630b;
+text-transform: capitalize;
+ border-bottom:4px solid #171616;
+ border-right: 1px solid #1f2120;
+ font-size:1rem;
  font-weight: 300;
  padding:24px;
  text-align:left;
@@ -54,11 +55,11 @@ font-weight:700;
 text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
 
-tr:hover td {
-background:#86661b;
-color:#FFFFFF;
-border-top: 1px solid #22262e;
-}
+/*tr:hover td {*/
+/*background: rgba(4, 50, 15, 0.21);*/
+/*color: #064507;*/
+/*border-top: 1px solid #22262e;*/
+/*}*/
 
 tr:first-child {
 border-top:none;
@@ -72,9 +73,9 @@ tr:nth-child(odd) td {
 background:#EBEBEB;
 }
 
-tr:nth-child(odd):hover td {
-background:#dac083;
-}
+/*tr:nth-child(odd):hover td {*/
+/*background: rgba(75, 156, 73, 0.55);*/
+/*}*/
 
 tr:last-child td:first-child {
 border-bottom-left-radius:3px;
@@ -126,7 +127,7 @@ text-align: right;
 td > a:active,
 td > a:link{
   text-decoration:none;
-  color :#9a6d27f5;
+  color : rgba(16, 123, 26, 0.96);
   font-weight:400;
 
 }
@@ -137,8 +138,6 @@ td > a:visited {
 
 
 .add_button{
-
-  /* background-color:pink; */
   height:50px;
   text-align:center;
 }
@@ -148,8 +147,9 @@ td > a:visited {
   margin-top:20px;
   display:inline-block;
   padding: 10px 20px;
-  background-color: brown;
-  font-color:white;
+  background-color: #0d7f26;
+  color:white;
+  text-decoration: none;
   font-size : 1.4rem;
   border-radius: 5px;
   box-shadow:1px 6px 12px black;

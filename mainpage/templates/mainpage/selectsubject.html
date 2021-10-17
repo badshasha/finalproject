@@ -22,7 +22,7 @@
         <ul class="nav-list">
             <li class='nav-item'><a href="{% url 'userdashbord' %}">dashboard</a> </li>
             <li class='nav-item'><a href="{% url 'exampage' %}">exam</a> </li>
-            <li class='nav-item'><a href="#">user profile</a> </li>
+            <li class='nav-item'><a href="{% url 'userprofile' %}">user profile</a> </li>
             <li class='nav-item'>
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
