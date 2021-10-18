@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from subjects.models import Subjects
 from django.http import JsonResponse
 from django.contrib.auth.models import User
+from datetime import date , timedelta
+from .models import RecordLogin
 from django.template import  RequestContext
 
 # Create your views here.
@@ -37,6 +40,26 @@ def userinfo_json(request):
         'label':['admin privilage','user privilage'],
         'data' : [len(supper_user) , len(normal_user)]
     }
+    return JsonResponse(responseData)
+
+def traffic_json(request):
+    days_count = 7
+    starttime = date.today()
+    traffic = []
+    label = []
+    for day in range(days_count):
+        endtime = starttime - timedelta(days=day)
+        label.append(endtime)
+        traffic.append(len(RecordLogin.objects.filter(date=endtime)))
+
+    # rever array
+    traffic = traffic[::-1]
+    label = label[::-1]
+    responseData = {
+        'data' : traffic,
+        'label' :label
+    }
+    print(traffic,label,sep='\n')
     return JsonResponse(responseData)
 
 

@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.admin import User
 
+from adminController.models import RecordLogin  # working not a error
 from .custom_class.subject_selector import SubjectSelection # subject class import
 from .custom_class.Validator import  Validation
 from .models import  StudentsSubject , PicProfile
@@ -35,7 +36,9 @@ def login(request):
         # print(f"{request.POST['name']}   password is {request.POST['password']}")
         found_user = authenticate(username=request.POST['name'], password=request.POST['password'])
         if found_user is not None:
-            print(get_client_ip(request))
+
+            new_record = RecordLogin.objects.create(user_id=found_user.pk, ip=get_client_ip(request), status=1)
+            new_record.save()
             auth_login(request, found_user)  # django login function
             return redirect('userdashbord')
     return render(request, "mainpage/signin.html")
@@ -62,8 +65,10 @@ def singin(request):
     return render(request, "mainpage/login.html", {'error': error})
 
 
-def logout(request):
+def logout(request,id):
     if request.method == 'POST':
+        new_record = RecordLogin.objects.create(user_id=id, ip=get_client_ip(request), status=0)
+        new_record.save()
         auth_logout(request)
         return redirect('indexpage') # homepage name
 

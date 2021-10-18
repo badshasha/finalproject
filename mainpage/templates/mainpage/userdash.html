@@ -13,12 +13,7 @@
 <body>
     {% if user.is_authenticated %}
     log in {{ user.username }}
-<!--    <a href="{% url 'logout' %}" class="btn btn-danger">log out</a>-->
 
-<!--    <form action="{% url 'logout' %}" method="post">-->
-<!--        {% csrf_token %}-->
-<!--        <input type="submit" value="logout">-->
-<!--    </form>-->
 
 
     {% else %}
@@ -41,7 +36,7 @@
             <li class='nav-item'><a href="{% url 'exampage' %}">exam</a> </li>
             <li class='nav-item'><a href="{% url 'userprofile' %}">user profile</a> </li>
             <li class='nav-item'>
-                 <form action="{% url 'logout' %}" method="post">
+                 <form action="{% url 'logout' user.pk %}" method="post">
                     {% csrf_token %}
                     <input type="submit" value="logout">
                  </form>

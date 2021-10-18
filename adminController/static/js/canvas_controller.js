@@ -1,8 +1,12 @@
 var ctx = document.getElementById('myChart').getContext('2d');
 var ctx2 = document.getElementById('myChart2').getContext('2d');
+var ctx3 = document.getElementById('myChart3').getContext('2d');
+var ctx4 = document.getElementById('myChart4').getContext('2d');
 
-var my_chart = createChart(ctx,'pie',data=[12, 19],label=['red','blue'])
-var my_chart2  = createChart(ctx2,'bar',data=[12,19],label=['red','blue'])
+var my_chart = createChart(ctx,'pie',data=[12, 19],label=['red','blue']);
+var my_chart2  = createChart(ctx2,'bar',data=[12,19],label=['red','blue']);
+var my_chart3 = createChart(ctx3,'line',data=[12, 19],label=['red','blue']);
+var my_chart4  = createChart(ctx4,'bar',data=[12,19],label=['red','blue']);
 
 var prev_response = 0;
 var preses_button = 0;
@@ -58,19 +62,31 @@ function createChart(canvas,graph,data,label,title){
     return myChart;
 
 }
-function ajaxsender(event,button_number,path,title){
+function ajaxsender(event,button_number,path,title,dash_board=1){
         preses_button = button_number;
         event.preventDefault();
-        my_chart.destroy();
-        my_chart2.destroy();
+        if (dash_board == 1){
+               my_chart.destroy();
+               my_chart2.destroy();
+        }else{
+            my_chart3.destroy();
+            my_chart4.destroy();
+        }
+
         $.ajax({
             type:'GET',
             url : path,
             success : function (response){
                 console.log(response);
                 prev_response = response;
-                my_chart = createChart(ctx,'pie',data=response.data,label= response.label,title )
-                my_chart2  = createChart(ctx2,'bar',data=response.data,label= response.label,title )
+                if (dash_board == 1){
+                      my_chart = createChart(ctx,'pie',data=response.data,label= response.label,title )
+                      my_chart2  = createChart(ctx2,'bar',data=response.data,label= response.label,title )
+                }else{
+                      my_chart3 = createChart(ctx3,'line',data=response.data,label= response.label,title )
+                      my_chart4  = createChart(ctx4,'bar',data=response.data,label= response.label,title )
+                }
+
             },
             error :function (response) {
                 console.log("error")
@@ -88,11 +104,17 @@ function chartDestroyAndCreate(ctx,response,chart,title){
 // btn selection
 var subject_btn = document.getElementById('subject')
 subject_btn.addEventListener('click',function (event){
-    ajaxsender(event,1,'subject_json/',"subjects and  subject subtopic -pie",)
+    ajaxsender(event,1,'subject_json/',"subjects and  subject subtopic -pie",1)
 
 })
 
 var staff_priv = document.getElementById('userinfo');
 staff_priv.addEventListener('click',function (event){
-     ajaxsender(event,2,'staffpriv_json/',"admin and normal user chart-pie",)
+     ajaxsender(event,2,'staffpriv_json/',"admin and normal user chart-pie",1)
+})
+
+// secound canvas dashboard
+var traffic_btn = document.getElementById('visiting')
+traffic_btn.addEventListener('click',function (event){
+    ajaxsender(event,1,'traffic_json/',"web traffic information ",2)
 })
