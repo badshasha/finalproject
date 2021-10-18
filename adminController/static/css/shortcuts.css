@@ -1,0 +1,42 @@
+.shortcut{
+    margin-top:2rem;
+}
+
+.shortcut_header{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.shortcut_list{
+    background-color: #f8f8f8;
+    padding: 2rem 1rem;
+    list-style: none;
+}
+
+.shortcut_list__item{
+    display: inline-block;
+    width:10%;
+    text-align: center;
+    margin-right: .3rem;
+}
+
+.shortcut_list__link{
+    background-color: #04230b;
+    display: inline-block;
+    width: 100%;
+    padding:1rem 2rem;
+    color: #f8f8f8;
+    text-decoration: none;
+    transition: .2s all;
+    font-size: .8rem;
+
+}
+
+.shortcut_list__link:hover{
+    color: white;
+    background-color: rgba(39, 42, 39, 0.71);
+
+}
+

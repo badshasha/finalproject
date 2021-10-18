@@ -10,7 +10,7 @@
 
 thead{
     box-shadow: 0 5px 10px #e1e5ee;
-    color:#8c6305;
+    color: #191c19;
 }
 
 th{
@@ -37,16 +37,17 @@ td > a:hover{
 
 .update,.delete{
     display:inline-block;
-    background-color:rgba(254, 182, 0, 0.742);
+    background-color: #0a9c11;
     padding:.4rem 2rem;
-    border-radius: 13px;
+    /*border-radius: 13px;*/
 }
 .update:hover{
-    background-color:rgb(254, 182, 0);
+    background-color: rgba(15, 147, 20, 0.82);
 }
 
 .subtopic{
-  background-color:rgba(0,0,0,1);
+  /*background-color:#0d7f26;*/
+    background-color: pink;
 }
 .delete{
     background-color:#d42020;
@@ -59,7 +60,7 @@ td > a:hover{
 
 .btn_create{
   display:inline-block;
-  background-color : #074dbb;
+  background-color : #131a1a;
   color : white;
   padding: 15px 20px;
   border-radius:15px;

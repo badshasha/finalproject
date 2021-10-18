@@ -4,6 +4,10 @@ var ctx2 = document.getElementById('myChart2').getContext('2d');
 var my_chart = createChart(ctx,'pie',data=[12, 19],label=['red','blue'])
 var my_chart2  = createChart(ctx2,'bar',data=[12,19],label=['red','blue'])
 
+var prev_response = 0;
+var preses_button = 0;
+
+
 function createChart(canvas,graph,data,label,title){
 
     var myChart = new Chart(canvas, {
@@ -54,3 +58,41 @@ function createChart(canvas,graph,data,label,title){
     return myChart;
 
 }
+function ajaxsender(event,button_number,path,title){
+        preses_button = button_number;
+        event.preventDefault();
+        my_chart.destroy();
+        my_chart2.destroy();
+        $.ajax({
+            type:'GET',
+            url : path,
+            success : function (response){
+                console.log(response);
+                prev_response = response;
+                my_chart = createChart(ctx,'pie',data=response.data,label= response.label,title )
+                my_chart2  = createChart(ctx2,'bar',data=response.data,label= response.label,title )
+            },
+            error :function (response) {
+                console.log("error")
+            }
+    })
+
+}
+
+function chartDestroyAndCreate(ctx,response,chart,title){
+      my_chart.destroy();
+      my_chart = createChart(ctx,chart,data=response.data,label=response.label,title);
+}
+
+
+// btn selection
+var subject_btn = document.getElementById('subject')
+subject_btn.addEventListener('click',function (event){
+    ajaxsender(event,1,'subject_json/',"subjects and  subject subtopic -pie",)
+
+})
+
+var staff_priv = document.getElementById('userinfo');
+staff_priv.addEventListener('click',function (event){
+     ajaxsender(event,2,'staffpriv_json/',"admin and normal user chart-pie",)
+})

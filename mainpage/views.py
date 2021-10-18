@@ -17,6 +17,14 @@ from math import floor
 import random
 
 
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
 
 def loadMain(request):
     return render(request, "mainpage/homepage.html")
@@ -27,6 +35,7 @@ def login(request):
         # print(f"{request.POST['name']}   password is {request.POST['password']}")
         found_user = authenticate(username=request.POST['name'], password=request.POST['password'])
         if found_user is not None:
+            print(get_client_ip(request))
             auth_login(request, found_user)  # django login function
             return redirect('userdashbord')
     return render(request, "mainpage/signin.html")
