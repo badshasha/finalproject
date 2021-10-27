@@ -262,8 +262,9 @@ def fullpaper(request,id):
     subtopic_list = selected_subject.subtopic_set.all()
     # print(subtopic_list)
     last_record_info = [request.user.exam_set.filter(subject=value).order_by('date').first() for value in subtopic_list]
-    if last_record_info[0] == None:
-        return HttpResponse("first do the subtopic exam")
+    if None in last_record_info:
+        values = last_record_info.index(None)
+        return render(request, 'mainpage/examRequestError.html',{"subject":subtopic_list[values]})
 
     get_presentages = [value.fail if value.fail > 0 else value.fail+1 for value in last_record_info ]
     get_ratio = [ vaule/min(get_presentages) for vaule in get_presentages]
