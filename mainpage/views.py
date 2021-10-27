@@ -155,7 +155,7 @@ def json_subject(request):
     # print(set(selected_subjects))
     # print([values.name for values in selected_subjects])
     # print([values.subtopic for values in selected_subjects])
-    #  print([    len(subject.subtopic_set.all()) for subject in selected_subjects ])
+    # print([len(subject.subtopic_set.all()) for subject in selected_subjects])
     responseData = {
 
         'label': [values.name for values in selected_subjects],
@@ -208,9 +208,13 @@ def testingPost(request):
         # print(v.Percentage_of_failier())
         # print(question.subject_name)
         # print(request.user)
-        if not request.POST["full_paper"]:
+        if  request.POST["full_paper"] == "False":
             exam = Exam.objects.create(user=request.user,subject=question.subject_name,success= v.Percentage_of_success(),fail=v.Percentage_of_failier())
+            print("page informatino store success [++++++]")
             exam.save()
+        else:
+            # print(request.POST["full_paper"])
+            print(" full page loading if not check the statement  ")
 
         # update database based on user information
 
@@ -258,6 +262,9 @@ def fullpaper(request,id):
     subtopic_list = selected_subject.subtopic_set.all()
     # print(subtopic_list)
     last_record_info = [request.user.exam_set.filter(subject=value).order_by('date').first() for value in subtopic_list]
+    if last_record_info[0] == None:
+        return HttpResponse("first do the subtopic exam")
+
     get_presentages = [value.fail if value.fail > 0 else value.fail+1 for value in last_record_info ]
     get_ratio = [ vaule/min(get_presentages) for vaule in get_presentages]
 

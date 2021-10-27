@@ -20,7 +20,7 @@
     <!-- navigation bar -->
     <nav>
         <ul class="nav-list">
-            <li class="nav-list__item"><a href=""><img class="nav-list__item--icon" src="../image/logo-white.png" alt="site logo"></a></li>
+            <li class="nav-list__item"><a href=""><img class="nav-list__item--icon" src="{% static 'image/logo-white.png'  %}" alt="site logo"></a></li>
             <li class="nav-list__item"><a href="{% url 'userdashbord' %}" class="w w-h">home</a></li>
             <li class="nav-list__item"><a href="#" class="w w-a" >About</a></li>
             <li class="nav-list__item"><a href="{% url 'login' %}"  class="w w-s">login</a></li>
@@ -111,12 +111,31 @@
 
     <div class="row padding_add--bigger">
         <!-- shavendra add the exam image page when it's chreate  -->
-        <div class="col-1-of-2 paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, aperiam sequi! Nemo modi dolorum ut, aperiam tenetur quaerat pariatur accusantium, numquam repellendus debitis, nobis itaque illo ad doloremque recusandae laboriosam.</div>
-        <div class="col-1-of-2 paragraph paragraph--white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo minima commodi aperiam! Totam praesentium aspernatur nobis quas aliquam accusamus autem quia? Minus non sit esse, nihil numquam consectetur quaerat commodi!
-        Quos nam a cupiditate aspernatur provident id molestias similique dolorem eaque labore officia temporibus, porro neque possimus distinctio. Facilis, expedita quasi. Voluptatum iusto consequatur sint. Hic quibusdam obcaecati laudantium porro?
-        Aliquid, eveniet possimus illo exercitationem porro mollitia. Eaque ut alias quidem labore ullam. Recusandae expedita natus ex tenetur maxime voluptate est, illo placeat eos omnis quis ipsam. Magni, tempore labore.
-        Adipisci, sunt delectus. Laborum expedita explicabo fuga aperiam sequi quo possimus impedit perspiciatis reprehenderit asperiores rem voluptatem deserunt sint iure nostrum, libero cupiditate officiis iusto autem nisi? Doloribus, dolor veniam.
-        Tempore id perferendis aliquid dolorem, distinctio architecto nulla, accusantium nisi maiores consequuntur recusandae vero fugit quod voluptates? Recusandae, cumque odio libero blanditiis praesentium aliquam reprehenderit animi consequuntur perferendis, nisi distinctio!</div>
+        <div class="col-1-of-2 paragraph">
+          <img style="width:100%;" src="{% static 'image/dashboard.png'  %}" alt="">
+          <img style="width:100%;" src="{% static 'image/chart.png'  %}" alt="">
+        </div>
+        <div class="col-1-of-2 paragraph paragraph--white">
+
+
+            <h1 style="font-size:2rem;font-weight:1rem;text-transform:capitalize;">Most proverfull student tracking system</h1>
+            <p style="font-size:1.3rem;line-height:2rem;"> Recalla can track down all of your exam based progress and provide easy desition making environment. The tracking sytem can track seperate tracking each and every selected subject</p>
+            <p style="font-size:1.3rem;line-height:2rem;"> real time chart update faciltiy provie more user friendly interface . one user face for the new exam system can update it informaton in real time </p>
+            <h1 style="font-size:2rem;font-weight:1rem;text-transform:capitalize;"> provide Exam papaer based on student current progress </h1>
+            <p style="font-size:1.3rem;line-height:2rem;"> advanced algorithm can track student progress for each subeject when the next time student ask for the new papaer it's shown the new papar based on student pre vious proformance, another meaning to
+            </p>
+              <h1 style="font-size:2rem;font-weight:1rem;text-transform:capitalize;"> why student need recalla </h1>
+
+              <ul>
+                <li style="font-size:1.3rem;"> tracking student information and provide easy desition making interface </li>
+                <li style="font-size:1.3rem;"> easiery focus on the weekest subject or the subtopic </li>
+                <li style="font-size:1.3rem;"> time can manage easierly because of the categories question </li>
+              </ul>
+
+              <!-- <img style="width:100%;" src="{% static 'image/exampage.png' %}" alt=""> -->
+              <img style="width:100%;" src="{% static 'image/result.png' %}" alt="">
+
+        </div>
     </div>
 
 
