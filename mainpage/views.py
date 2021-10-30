@@ -75,9 +75,12 @@ def logout(request,id):
 
 def userDashBroard(request):
     # if request.user:  need to update this part
-    logged_time=request.user.last_login
-    print(logged_time)
-    return render(request, 'mainpage/userdash.html',{'logtime':logged_time})
+    try:
+        logged_time=request.user.last_login
+        print(logged_time)
+        return render(request, 'mainpage/userdash.html',{'logtime':logged_time})
+    except :
+        return redirect('login')
 
 
 def userDashBrod_selectedsub(request):  # selecet_subject
