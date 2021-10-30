@@ -22,7 +22,8 @@ from django.conf.urls.static import  static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("adminsite/",include("adminController.urls")),
-    path("",include("crudinfo.urls")),
+    # path("",include("crudinfo.urls")),  # check this informatino again
+    path("",include("mainpage.urls")),
     path("subject/",include("subjects.urls"),name="subjectMain"),
     path('homepage/', include("mainpage.urls")),
 ]

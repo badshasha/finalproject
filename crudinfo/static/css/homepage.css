@@ -505,3 +505,19 @@ body {
   margin-top: -128vh;
   background-color: #2C8954;
   position: relative; }
+
+.footer{
+  background-color:#77777724;
+  color:black;
+  margin-top:-8rem;
+  padding-bottom:0;
+}
+
+.footer div > p {
+  color:black;
+}
+
+.black_bar{
+  background-color:#2c8954;
+  padding-top:3rem;
+}
